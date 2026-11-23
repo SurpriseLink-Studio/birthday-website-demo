@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#210e1b">
+<meta name="description" content="A little birthday website made with love. Personalised celebration websites by SurpriseLink Studio.">
+<title>Happy Birthday, Aarav — SurpriseLink Studio</title>
+<style>
+:root{--plum:#210e1b;--plum2:#351426;--wine:#57263e;--gold:#e5c58a;--cream:#fff6e9;--muted:#d8c6c7;--line:rgba(229,197,138,.22)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--plum);color:var(--cream);font-family:Georgia,"Times New Roman",serif;line-height:1.6}
+button,a{font:inherit}
+a{color:inherit}
+.site-shell{overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#51243b 0%,#2c1424 38%,#1b0b16 78%)}
+.topbar{position:absolute;z-index:5;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:25px clamp(20px,6vw,88px);font-family:Arial,sans-serif}
+.brand{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.sample{font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:8px 13px;color:#f2dcb6;background:#ffffff08}
+.hero{min-height:790px;min-height:100svh;display:grid;place-items:center;position:relative;padding:130px 22px 90px;text-align:center}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #e5c58a22;border-radius:50%;width:min(72vw,720px);aspect-ratio:1;pointer-events:none}
+.hero:after{width:min(90vw,900px);border-color:#e5c58a12}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.eyebrow{font:11px Arial,sans-serif;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+h1{font-weight:400;font-size:clamp(58px,10vw,116px);line-height:.98;letter-spacing:-.055em;margin:0 auto 25px}
+h1 span{display:block;color:var(--gold);font-style:italic;font-size:.78em;margin-top:10px}
+.hero-copy{font-size:clamp(16px,2vw,20px);color:#e6d6d1;max-width:520px;margin:0 auto 36px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{border:1px solid var(--gold);background:var(--gold);color:#29121e;padding:13px 22px;border-radius:3px;text-decoration:none;font:12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px #0004}
+.btn.secondary{background:transparent;color:var(--cream);border-color:#e5c58a77}
+.scroll-note{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font:10px Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#d8c6c7a8}
+.sparkle{position:absolute;color:var(--gold);opacity:.7;font-size:22px}
+.s1{top:23%;left:15%}.s2{top:30%;right:17%;font-size:15px}.s3{bottom:22%;left:22%;font-size:13px}.s4{bottom:29%;right:14%}
+.section{padding:110px 22px;position:relative}
+.section-inner{max-width:1040px;margin:auto}
+.section-kicker{text-align:center;font:10px Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:15px}
+.section h2{text-align:center;font-weight:400;font-size:clamp(38px,6vw,64px);line-height:1.05;margin:0 0 18px}
+.section-intro{text-align:center;color:var(--muted);max-width:550px;margin:0 auto 55px;font-size:17px}
+.memory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.memory{min-height:245px;padding:30px 25px;border:1px solid var(--line);background:linear-gradient(145deg,#ffffff0b,#ffffff02);position:relative}
+.memory .number{font:10px Arial,sans-serif;letter-spacing:.2em;color:var(--gold)}
+.memory h3{font-weight:400;font-size:28px;margin:38px 0 10px}
+.memory p{margin:0;color:#d7c6c7;font-size:15px}
+.memory:after{content:"✧";position:absolute;right:22px;top:20px;color:var(--gold);font-size:20px}
+.note-wrap{max-width:760px;margin:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:58px clamp(20px,7vw,85px);text-align:center;position:relative}
+.note-wrap:before{content:"“";position:absolute;top:-25px;left:50%;transform:translateX(-50%);font-size:80px;color:var(--gold);background:#281221;padding:0 18px;line-height:1}
+.note-wrap p{font-size:clamp(19px,3vw,27px);line-height:1.55;color:#f2e4db;margin:0}
+.note-sign{margin-top:26px;color:var(--gold);font-style:italic;font-size:19px}
+.surprise-card{max-width:700px;margin:0 auto;text-align:center;padding:45px 25px;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,#6b334b55,transparent 65%),#ffffff06}
+.gift-icon{font-size:50px;display:block;margin-bottom:16px}
+.surprise-card h2{font-size:clamp(34px,5vw,52px)}
+.surprise-card p{color:var(--muted);max-width:450px;margin:0 auto 25px}
+.reveal{display:none;margin:30px auto 0;padding:25px;border-top:1px solid var(--line);max-width:480px;color:var(--gold);font-size:24px;font-style:italic}
+.reveal.show{display:block;animation:rise .65s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.final-wish{text-align:center;padding:130px 22px 100px;background:linear-gradient(180deg,transparent,#12071088)}
+.final-wish h2{font-size:clamp(42px,7vw,78px);font-weight:400;line-height:1.05;margin:0 0 18px}
+.final-wish h2 em{color:var(--gold)}
+.final-wish p{color:var(--muted);margin:0 auto 35px;max-width:470px}
+.footer{padding:22px;text-align:center;border-top:1px solid #ffffff10;color:#bca9ad;font:10px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.footer strong{color:var(--gold);font-weight:400}
+.music{position:fixed;z-index:10;right:20px;bottom:20px;border:1px solid #e5c58a66;background:#24101d;color:var(--cream);border-radius:99px;padding:11px 15px;font:11px Arial,sans-serif;letter-spacing:.08em;cursor:pointer;box-shadow:0 8px 25px #0005}
+.music span{color:var(--gold);margin-right:7px}
+.confetti{position:fixed;z-index:20;top:-15px;width:8px;height:12px;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(760deg);opacity:.15}}
+@media(max-width:700px){.hero{min-height:760px}.memory-grid{grid-template-columns:1fr}.memory{min-height:190px}.memory h3{margin-top:25px}.section{padding:82px 20px}.topbar{padding:20px}.sample{font-size:9px}.music{right:12px;bottom:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="site-shell">
+<header class="topbar"><div class="brand">SurpriseLink Studio</div><div class="sample">Sample demo · Names are customisable</div></header>
+<main>
+<section class="hero" id="top">
+<div class="sparkle s1">✧</div><div class="sparkle s2">✦</div><div class="sparkle s3">✧</div><div class="sparkle s4">✦</div>
+<div class="hero-content">
+<div class="eyebrow">A day made just for you</div>
+<h1>Happy Birthday,<span>Aarav.</span></h1>
+<p class="hero-copy">Today deserves more than an ordinary wish. Here's a little corner of the internet, made to celebrate you.</p>
+<div class="actions"><a class="btn" href="#memories">Explore your surprise</a><a class="btn secondary" href="#note">A little note</a></div>
+</div><div class="scroll-note">A celebration made with love&nbsp; ↓</div>
+</section>
+<section class="section" id="memories"><div class="section-inner">
+<div class="section-kicker">The little things</div><h2>Here's to your kind of magic.</h2>
+<p class="section-intro">The best memories are made of small moments. Here's to more of the things that make life feel wonderful.</p>
+<div class="memory-grid">
+<article class="memory"><div class="number">01 / ADVENTURES</div><h3>Places yet to go</h3><p>May the next chapter bring new roads, unexpected views, and stories worth telling.</p></article>
+<article class="memory"><div class="number">02 / LAUGHTER</div><h3>More belly laughs</h3><p>May your days be full of inside jokes, good people, and reasons to smile for no reason.</p></article>
+<article class="memory"><div class="number">03 / LITTLE WINS</div><h3>Dreams in motion</h3><p>May every brave step bring you closer to the life you've been imagining.</p></article>
+</div></div></section>
+<section class="section" id="note"><div class="section-inner">
+<div class="section-kicker">Just for you</div><h2>A note from the heart.</h2>
+<div class="note-wrap"><p>May you always find a reason to be excited about tomorrow, the courage to chase what matters, and people who make every ordinary day feel special. Never stop being wonderfully you.</p><div class="note-sign">With lots of love ♡</div></div>
+</div></section>
+<section class="section" id="surprise"><div class="section-inner">
+<div class="surprise-card"><span class="gift-icon">🎁</span><div class="section-kicker">One last thing</div><h2>There's a little surprise.</h2><p>Because birthdays should come with at least one unexpected smile. Tap below to unwrap yours.</p>
+<button class="btn" id="revealBtn" type="button">Open your surprise</button>
+<div class="reveal" id="revealMessage" aria-live="polite">Your next year is going to be something beautiful. Keep shining, Aarav. ✨</div>
+</div></div></section>
+<section class="final-wish"><div class="section-kicker">Until the next adventure</div><h2>Make a wish.<br><em>Make it count.</em></h2><p>Wishing you a year filled with warmth, wonder, and moments you'll want to replay forever.</p><a class="btn secondary" href="#top">Back to the beginning ↑</a></section>
+</main>
+<footer class="footer">A little something by <strong>SurpriseLink Studio</strong> · Made to make moments memorable</footer>
+</div>
+<button class="music" id="musicBtn" type="button" aria-pressed="false"><span>♫</span> Play a little melody</button>
+<script>
+(() => {
+ const revealBtn=document.getElementById('revealBtn');
+ const reveal=document.getElementById('revealMessage');
+ revealBtn.addEventListener('click',()=>{
+   reveal.classList.add('show');revealBtn.textContent='Surprise opened ♡';revealBtn.disabled=true;celebrate();
+ });
+ function celebrate(){
+   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+   const colors=['#e5c58a','#f5d9c8','#b77b92','#fff6e9'];
+   for(let i=0;i<65;i++){
+     const bit=document.createElement('i');bit.className='confetti';
+     bit.style.left=Math.random()*100+'vw';bit.style.background=colors[i%colors.length];
+     bit.style.animationDuration=(2.3+Math.random()*2.2)+'s';
+     bit.style.animationDelay=(Math.random()*.6)+'s';bit.style.transform='rotate('+Math.random()*180+'deg)';
+     document.body.appendChild(bit);setTimeout(()=>bit.remove(),5200);
+   }
+ }
+ // Original, browser-synthesised melody. It is user-initiated and never autoplays.
+ const musicBtn=document.getElementById('musicBtn');
+ let audio=null,playing=false, timers=[];
+ const melody=[523.25,659.25,783.99,659.25,587.33,698.46,880,783.99,659.25,587.33,523.25,392,440,523.25,659.25,523.25];
+ function stopMelody(){
+   timers.forEach(clearTimeout);timers=[];
+   if(audio){audio.oscillators.forEach(o=>{try{o.stop()}catch(e){}});try{audio.ctx.close()}catch(e){}audio=null}
+   playing=false;musicBtn.setAttribute('aria-pressed','false');musicBtn.innerHTML='<span>♫</span> Play a little melody';
+ }
+ function startMelody(){
+   const Ctx=window.AudioContext||window.webkitAudioContext;
+   if(!Ctx){musicBtn.textContent='Melody unavailable in this browser';return}
+   const ctx=new Ctx(),oscillators=[];
+   audio={ctx,oscillators};playing=true;musicBtn.setAttribute('aria-pressed','true');musicBtn.innerHTML='<span>Ⅱ</span> Pause the melody';
+   melody.forEach((freq,i)=>{
+     const t=i*.34;
+     const timer=setTimeout(()=>{
+       if(!audio)return;
+       const osc=ctx.createOscillator(),gain=ctx.createGain();
+       osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,ctx.currentTime);
+       gain.gain.exponentialRampToValueAtTime(.075,ctx.currentTime+.025);
+       gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.29);
+       osc.connect(gain);gain.connect(ctx.destination);osc.start();osc.stop(ctx.currentTime+.31);oscillators.push(osc);
+     },t*1000);timers.push(timer);
+   });
+   timers.push(setTimeout(()=>{if(playing)stopMelody()},melody.length*340+500));
+ }
+ musicBtn.addEventListener('click',()=>playing?stopMelody():startMelody());
+})();
+</script>
+</body>
+</html>
